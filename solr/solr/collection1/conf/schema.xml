@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<schema name="geocoder" version="1.5">
+ <fields>
+   <field name="_version_" type="long" indexed="true" stored="true"/>
+   <field name="id" type="string" indexed="true" stored="true" required="true" multiValued="false" /> 
+        
+   <field name="name" type="string" indexed="true" stored="true" multiValued="true"/>
+   <field name="part" type="long" indexed="true" stored="true" />
+
+   <field name="rawdata" type="binary" indexed="false" stored="true" multiValued="false" />
+   <field name="size" type="long" indexed="false" stored="true"/>
+
+   <field name="text" type="string" indexed="true" stored="false" multiValued="true"/>
+ </fields>
+
+ <uniqueKey>id</uniqueKey>
+
+  <types>
+    <fieldType name="long" class="solr.TrieLongField" precisionStep="0" positionIncrementGap="0"/>
+    <fieldType name="string" class="solr.StrField" sortMissingLast="true"/>
+    <fieldtype name="binary" class="solr.BinaryField"/>
+ </types>
+
+</schema>
