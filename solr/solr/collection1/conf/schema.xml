@@ -4,12 +4,16 @@
  <fields>
    <field name="_version_" type="long" indexed="true" stored="true"/>
    <field name="id" type="string" indexed="true" stored="true" required="true" multiValued="false" /> 
-        
-   <field name="name" type="string" indexed="true" stored="true" multiValued="true"/>
-   <field name="part" type="long" indexed="true" stored="true" />
 
+   <!-- fields for part documents -->
    <field name="rawdata" type="binary" indexed="false" stored="true" multiValued="false" />
+   <field name="sequence" type="long" indexed="true" stored="true" />
+
+   <!-- fields for metadata documents -->
+   <field name="name" type="string" indexed="true" stored="true" multiValued="true"/>
+   <field name="parts" type="string" indexed="true" stored="true" multiValued="true"/>
    <field name="size" type="long" indexed="false" stored="true"/>
+   <!--field name="date" ... -->
 
    <field name="text" type="string" indexed="true" stored="false" multiValued="true"/>
  </fields>
