@@ -8,7 +8,11 @@ import java.nio.channels.FileChannel;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
+import java.util.Set;
 import java.util.UUID;
 
 import org.apache.commons.codec.digest.DigestUtils;
@@ -76,9 +80,9 @@ public class SolrFileStore {
     System.out.println("Committed "+counter+" parts...");
     
     
-    server.deleteByQuery("name:"+name);
+    // Create a new metadata document. If it existed overwrite it.
     SolrInputDocument metaDoc = new SolrInputDocument();
-    metaDoc.addField("id", uuid);
+    metaDoc.addField("id", name);
     metaDoc.addField("name", name);
     for(String p: ids)
       metaDoc.addField("parts", p);
